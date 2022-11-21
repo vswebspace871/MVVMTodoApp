@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements TodoAdapter.onItemClickHandler {
     
-    ImageButton addTodo;
+    ImageButton addTodo, voiceButton;
     RecyclerView recyclerView;
     TodoViewModel todoViewModel;
     TodoAdapter adapter;
@@ -32,12 +33,33 @@ public class MainActivity extends AppCompatActivity implements TodoAdapter.onIte
         setContentView(R.layout.activity_main);
         
         addTodo = findViewById(R.id.imageButton);
+        voiceButton = findViewById(R.id.voiceButton);
         recyclerView = findViewById(R.id.recyclerView);
 
         todoViewModel = new ViewModelProvider(this, new TodoFactory(getApplication())).get(TodoViewModel.class);
 
         //App k start hote hi todotask dikhne chaiye
         showNotes();
+
+        voiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, VoiceSearchActivity.class));
+            }
+        });
+
+        Intent intent = getIntent();
+        String recorded_msg = intent.getStringExtra("record");
+        Log.d("vbv", "onCreate: "+recorded_msg);
+        if (recorded_msg != null){
+            TodoModel model = new TodoModel();
+            String new_title = recorded_msg;
+            String new_desc = "no description";
+            model.setTitle(new_title);
+            model.setDescription(new_desc);
+            todoViewModel.insertTodos(model);
+            showNotes();
+        }
 
         addTodo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements TodoAdapter.onIte
                         String title = etTitle.getText().toString();
                         String desc = etDesc.getText().toString();
                         model.setTitle(title);
+                        if (desc.isEmpty()){
+                            desc = "no description";
+                        }
                         model.setDescription(desc);
                         if (!title.isEmpty() && !desc.isEmpty()) {
                             // add data to Database

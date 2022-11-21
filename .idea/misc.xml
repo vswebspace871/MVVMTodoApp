@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/abhinav/AndroidStudioProjects/MVVM PROJECTS/MVVMTodoApp/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.129" />
+        <entry key="..\:/Users/abhinav/AndroidStudioProjects/MVVM PROJECTS/MVVMTodoApp/app/src/main/res/drawable/ic_baseline_keyboard_voice_24.xml" value="0.12" />
         <entry key="..\:/Users/abhinav/AndroidStudioProjects/MVVM PROJECTS/MVVMTodoApp/app/src/main/res/drawable/red_button.xml" value="0.129" />
         <entry key="..\:/Users/abhinav/AndroidStudioProjects/MVVM PROJECTS/MVVMTodoApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/abhinav/AndroidStudioProjects/MVVM PROJECTS/MVVMTodoApp/app/src/main/res/layout/activity_voice_search.xml" value="0.1796875" />
         <entry key="..\:/Users/abhinav/AndroidStudioProjects/MVVM PROJECTS/MVVMTodoApp/app/src/main/res/layout/dialog_box.xml" value="0.1796875" />
         <entry key="..\:/Users/abhinav/AndroidStudioProjects/MVVM PROJECTS/MVVMTodoApp/app/src/main/res/layout/todo_item.xml" value="0.17864583333333334" />
       </map>

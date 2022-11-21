@@ -24,7 +24,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
     TodoViewModel todoViewModel;
     private onItemClickHandler clickHandler;
 
-    public <todovm> TodoAdapter(Context context, ArrayList<TodoModel> list, onItemClickHandler clickHandler) {
+    public TodoAdapter(Context context, ArrayList<TodoModel> list, onItemClickHandler clickHandler) {
         this.context = context;
         this.list = list;
         this.clickHandler = clickHandler;
